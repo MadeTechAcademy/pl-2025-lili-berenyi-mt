@@ -17,4 +17,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Update dependencies
-        run: pnpm update
+        run: ./exercises/3-github-actionspnpm pnpm update
