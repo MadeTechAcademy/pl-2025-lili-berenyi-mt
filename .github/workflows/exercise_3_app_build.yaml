@@ -15,6 +15,6 @@ jobs:
         with:
           version: 10
       - name: Install dependencies
-        run: ./exercises/3-github-actionspnpm pnpm install
+        run: ./exercises/3-github-actions/app pnpm install
       - name: Update dependencies
-        run: ./exercises/3-github-actionspnpm pnpm update
+        run: ./exercises/3-github-actions/app pnpm update
