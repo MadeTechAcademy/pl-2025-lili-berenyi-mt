@@ -17,6 +17,8 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 10
+      - name: Update pnpm
+        run: pnpm self-update
       - name: Install dependencies
         run: pnpm install
       - name: Update dependencies
