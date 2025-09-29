@@ -7,6 +7,9 @@ on:
 jobs:
   test-app:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./exercises/3-github-actions/app
     steps:
       - name: Check out repo
         uses: actions/checkout@v5
@@ -15,6 +18,6 @@ jobs:
         with:
           version: 10
       - name: Install dependencies
-        run: ./exercises/3-github-actions/app pnpm install
+        run: pnpm install
       - name: Update dependencies
-        run: ./exercises/3-github-actions/app pnpm update
+        run: pnpm update
