@@ -1,6 +1,0 @@
-owner               = "lili" # update
-github_organisation = "MadeTechAcademy" # update if instructed
-github_repo         = "pl-2025-lili-berenyi-mt" # eg chapter2-pipelines-tess-barnes-mt
-account_id          = 261219435789 # update to the sandbox account number, see your aws config
-state_bucket        = "lili-terraform-s3-bucket" # from the s3 backend exercise
-state_key_alias     = "alias/lili-terraform" # from the s3 backend exercise
