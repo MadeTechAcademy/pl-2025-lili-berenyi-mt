@@ -50,5 +50,12 @@ Ensure that your AWS credentials have the necessary permissions to create and ma
 I assume I have permissions because I was able to create the bucket but I'm not sure where I could check if I didn't
 
 What does terraform destroy do?
+Destroys things associated with the terraform configuration in the currect pipeline
 Got this error when trying to run: aws-vault exec {profile-name} -- terraform destroy
 Resource module.s3.aws_s3_bucket.bootstrap_s3_bucket has lifecycle.prevent_destroy set, but the plan calls for this resource to be destroyed. To avoid this error and continue with the plan, either disable lifecycle.prevent_destroy or reduce the scope of the plan using the -target option.
+Fix: manually destroy the bucket on the aws console and
+in s3.tf change prevent_destroy = true to false then create the
+bucket again
+
+Set up a github/aws link
+Updated vars.auto.tfvars.example, ran terraform init, terraform plan, terraform appy.
