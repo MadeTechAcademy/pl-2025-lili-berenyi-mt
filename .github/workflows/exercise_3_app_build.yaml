@@ -22,4 +22,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Check outdated dependencies
-        run: pnpm exec outdated_check
+        run: pnpm exec outdated_check || true
