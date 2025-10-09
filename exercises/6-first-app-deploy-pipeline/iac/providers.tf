@@ -30,7 +30,7 @@ terraform {
     key            = "p2025-iac-6/terraform.tfstate"
     region         = "eu-west-2"
     encrypt        = true
-    kms_key_id     = "alias/ili-terraform"
+    kms_key_id     = "alias/lili-terraform"
     use_lockfile = true
   }
 }
