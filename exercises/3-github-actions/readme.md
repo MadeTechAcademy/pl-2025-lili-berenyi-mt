@@ -1,13 +1,15 @@
 # Build and test an app
 
 ## Task Instructions
+
 There is a basic node app provided in the `app` folder. It gets all its dependencies publically from nodejs.
 
-We need a pipeline to 
-- checkout the code, 
-- install the dependencies, 
+We need a pipeline to
+
+- checkout the code,
+- install the dependencies,
 - check for outdated packages
-- prettify the code and 
+- prettify the code and
 - run the tests.
 
 We would like the pipeline to run on each push to `main`
@@ -18,18 +20,44 @@ We would like the pipeline to run on each push to `main`
 - Use the github web interface to find the pipeline and trigger it, then check it has run correctly.
 
 ## Hints
+
 - Check which folder the commands need to run in
 - Check the version of node for the project in the `.nvmrc` file
 - Be aware that for safety, you will want to use pnpm to install and manage packages and scripts
 - Check the available runnable pnpm `scripts` in the `package.json` file
 
 ## If you're stuck
+
 - Review the helpful resources in the documentation folder
 - Look at the `example.yaml` in the workflows folder, this will not solve it all but might get you started
 
 ## Stretch tasks
+
 How would you temporarily suspend the pipeline so it didn't run on a push?
 For discussion: What else is missing from this pipeline? (no need to add it right now)
 
 ## Notes
+
 Add your thoughts and questions here
+
+This triggers the workflow when there's a push to main:
+on:
+push:
+branches: - main
+
+This sets the default pipeline to be the folder the project is located in:
+defaults:
+run:
+working-directory: ./exercises/3-github-actions/app
+
+This clones the repo to the runner:
+name: Check out repo
+uses: actions/checkout@v5
+
+When we check for uoutdated dependencies the pipeline fails:
+name: Check outdated dependencies
+run: pnpm exec outdated_check
+Should we automatically update dependencies?
+-might break code
+-if we do, we also need to commit the automatic changes, which might trigger a loop
+-create a warnign istead

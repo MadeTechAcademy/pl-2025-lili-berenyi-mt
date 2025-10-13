@@ -1,0 +1,25 @@
+name: Github-actions-task
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test-app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./exercises/3-github-actions/app
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v5
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Update pnpm
+        run: pnpm self-update
+      - name: Install dependencies
+        run: pnpm install
+      - name: Check outdated dependencies
+        run: pnpm exec outdated_check || true
